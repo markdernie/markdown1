@@ -1,0 +1,24 @@
+@if(working){
+    <mat-progress-bar></mat-progress-bar>
+}
+
+<mat-card>
+    @if(!isShow) {
+        <button mat-icon-button (click)=toggleDisplay()><mat-icon>keyboard_arrow_down</mat-icon></button>
+    } @else {
+        <button mat-icon-button (click)=toggleDisplay()><mat-icon>keyboard_arrow_up</mat-icon></button>
+
+    }
+    
+    @for (model1 of array;track model1.id;let index = $index){
+        <app-child [model1]="model1" [isShow]=isShow [Index]=index [backendip]=backend  (refresh)="getall()"></app-child>
+    } 
+    @empty {
+        <li>there are no items</li>
+    }
+
+    <mat-card-actions>
+        <button mat-button (click)="getall()">Get All</button>
+        <button mat-button (click)="createnew()">Create New File</button>
+    </mat-card-actions>
+</mat-card>

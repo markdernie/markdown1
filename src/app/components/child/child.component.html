@@ -1,0 +1,36 @@
+<mat-card>
+    <!-- {{Index}}:{{lastupdate | relativeTime}} -->
+    {{Index}}:{{model1form.value.lastupdate | relativeTime}}
+
+    @if(!isShow){
+      
+        } @else{
+            <form [formGroup]="model1form" class="fields">
+                <div class="row">
+                    <div [innerHtml]="model1form.value.s02              | markdownToHtml"></div>
+                    <mat-form-field>
+                        <mat-label>section s03</mat-label>
+                        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="9" type="text" formControlName="s02"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <div [innerHtml]="model1form.value.s03              | markdownToHtml"></div>
+                    <mat-form-field>
+                        <mat-label>section s03</mat-label>
+                        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="9" type="text" formControlName="s03"></textarea>
+                    </mat-form-field>                    
+                </div>
+                <div>
+                    <div [innerHtml]="model1form.value.s04| markdownToHtml"></div>
+                    <mat-form-field>
+                        <mat-label>section s04</mat-label>
+                        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="9" type="text" formControlName="s04"></textarea>
+                    </mat-form-field>
+                </div>
+        
+            </form>
+        }
+
+
+    <p>last updated: {{ model1form.value.lastupdate | relativeTime }}</p>
+</mat-card>
